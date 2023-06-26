@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Outlet, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import PodcastContext from '../context/podcastContext';
+import { PodcastContext } from '../context/podcastContext';
 
 function Root() {
   const { podcastId } = useParams();
