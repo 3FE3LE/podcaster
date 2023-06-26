@@ -52,7 +52,7 @@ function Podcast() {
                     {ep.trackName}
                   </Link>
                 </td>
-                <td >{ep.releaseDate}</td>
+                <td >{utils.formatDate(ep.releaseDate)}</td>
                 <td >{utils.millsFormatter(ep.trackTimeMillis)}</td>
               </tr>
 

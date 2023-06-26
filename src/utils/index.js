@@ -19,6 +19,14 @@ const utils = {
 
     return timeFormatted;
   },
+  formatDate(date) {
+    const dateObject = new Date(date);
+    const day = dateObject.getDate().toString().padStart(2, "0");
+    const month = (dateObject.getMonth() + 1).toString().padStart(2, "0"); // Adding 1 since months are zero-based
+    const year = dateObject.getFullYear().toString();
+
+    return `${month}/${day}/${year}`;
+  },
 };
 
 export default utils;
