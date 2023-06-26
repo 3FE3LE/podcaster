@@ -2,6 +2,9 @@ import { Link, useParams } from "react-router-dom";
 import { useApiGet } from "../hooks/useGetApi";
 import { useContext, useEffect, useState } from "react";
 import { PodcastContext } from "../context/podcastContext";
+
+import { Grid } from 'react-loader-spinner'
+
 import utils from "../utils";
 
 function Podcast() {
@@ -16,6 +19,16 @@ function Podcast() {
 
   const { setCurrentEpisode } = useContext(PodcastContext)
 
+  const Loader = () => (<Grid
+    height="80"
+    width="80"
+    color="#99f6e4"
+    ariaLabel="grid-loading"
+    radius="12.5"
+    wrapperStyle={{}}
+    wrapperClass=""
+    visible={true}
+  />)
 
   useEffect(() => {
     if (!loading && data && episodes.length === 0) {
@@ -35,8 +48,8 @@ function Podcast() {
           Episodes: {episodes?.length}
         </h1>
       </div>
-      <section className="shadow shadow-slate-200 mt-4 h-fit rounded-lg p-4">
-        <table className="table-auto w-full">
+      <section className="shadow flex justify-center shadow-slate-200 mt-4 h-fit rounded-lg p-4">
+        {!episodes.length > 0 ? <Loader /> : <table className="table-auto w-full">
           <thead>
             <tr>
               {tiers.map((t, i) => (
@@ -45,7 +58,7 @@ function Podcast() {
             </tr>
           </thead>
           <tbody>
-            {episodes && !loading && episodes.length > 0 && episodes.map(ep => (
+            {episodes && !loading && episodes.map(ep => (
               <tr className="text-slate-800" onClick={() => setCurrentEpisode(ep)} key={ep.trackId}>
                 <td  >
                   <Link to='episode/1'>
@@ -58,7 +71,7 @@ function Podcast() {
 
             ))}
           </tbody>
-        </table>
+        </table>}
       </section>
     </div>
   );
