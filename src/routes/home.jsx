@@ -18,10 +18,10 @@ function Home() {
 
   return (
     <div>
-      <div className="flex justify-end items-center">
-        <h3>{podcasts.length}</h3>
+      <div className="flex justify-end items-center ">
+        <h3 className="bg-teal-200 border-2 border-teal-200 rounded text-white mr-4 font-bold">{podcasts.length}</h3>
         <form action="">
-          <input placeholder="filter your podcasts" type="text" />
+          <input className="border-2 border-teal-200 rounded" placeholder="filter your podcasts" type="text" />
         </form>
       </div>
       <div className="grid grid-rows-flow grid-cols-5 gap-x-8  gap-y-32 pt-24">
