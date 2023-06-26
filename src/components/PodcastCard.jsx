@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import utils from "../utils/trimText";
+import utils from "../utils";
 import { PodcastContext } from "../context/podcastContext";
 import { useContext } from "react";
 

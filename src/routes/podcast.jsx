@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useApiGet } from "../hooks/useGetApi";
 import { useContext, useEffect, useState } from "react";
 import { PodcastContext } from "../context/podcastContext";
+import utils from "../utils";
 
 function Podcast() {
 
@@ -52,7 +53,7 @@ function Podcast() {
                   </Link>
                 </td>
                 <td >{ep.releaseDate}</td>
-                <td >{ep.trackTimeMillis}</td>
+                <td >{utils.millsFormatter(ep.trackTimeMillis)}</td>
               </tr>
 
             ))}
