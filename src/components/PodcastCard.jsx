@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import utils from "../utils/trimText";
+import { PodcastContext } from "../context/podcastContext";
+import { useContext } from "react";
 
-function PodcastCard({ podcast }) {
+function PodcastCard({podcast}) {
+
+  const {setCurrentPodcast} = useContext(PodcastContext)
   const {
     "im:name": { label: name },
     "im:image": img,
@@ -12,7 +16,7 @@ function PodcastCard({ podcast }) {
   } = podcast;
 
   return (
-    <Link to={`podcast/${id}`}>
+    <Link onClick={()=> setCurrentPodcast(podcast)} to={`podcast/${id}`}>
       <div className="rounded-lg shadow-slate-200 shadow h-32 flex flex-col items-center ">
         <img
           className="rounded-full w-32 h-32 -mt-16"
