@@ -6,15 +6,10 @@ import { PodcastContext } from "../context/podcastContext";
 function Sidebar() {
 
   const { podcastId, episodeId } = useParams()
- 
+
   const { currentPodcast } = useContext(PodcastContext);
 
-  const {
-    "im:name": { label: name },
-    "im:image": img,
-    "im:artist": { label: author },
-    summary: {label: description}
-  } = currentPodcast;
+  const { name, img, author, description } = currentPodcast;
 
 
   return (

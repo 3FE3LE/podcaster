@@ -27,6 +27,27 @@ const utils = {
 
     return `${month}/${day}/${year}`;
   },
+  transformPodcastWithNoiseToPodcast(podcastNoise) {
+    const {
+      "im:name": { label: name },
+      "im:image": img,
+      "im:artist": { label: author },
+      id: {
+        attributes: { "im:id": id },
+      },
+      summary: {label: description}
+    } = podcastNoise;
+
+    const podcast = {
+      name,
+      img,
+      author,
+      id,
+      description
+    };
+
+    return podcast;
+  },
 };
 
 export default utils;

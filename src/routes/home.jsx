@@ -3,6 +3,7 @@ import PodcastCard from "../components/PodcastCard";
 import { useApiGet } from "../hooks/useGetApi";
 import { PodcastContext } from "../context/podcastContext";
 import Loader from "../components/Loader";
+import utils from "../utils";
 
 function Home() {
   // call to the hook
@@ -26,7 +27,7 @@ function Home() {
         </form>
       </div>
       <div className="grid grid-rows-flow grid-cols-5 gap-x-8  gap-y-32 pt-24">
-        {podcasts?.map((pod) => <PodcastCard key={pod?.id?.label} podcast={pod} />)}
+        {podcasts?.map((pod) => <PodcastCard key={pod?.id?.label} podcast={utils.transformPodcastWithNoiseToPodcast(pod)} />)}
       </div>
     </div>
   );

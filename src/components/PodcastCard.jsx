@@ -6,14 +6,9 @@ import { useContext } from "react";
 function PodcastCard({podcast}) {
 
   const {setCurrentPodcast} = useContext(PodcastContext)
-  const {
-    "im:name": { label: name },
-    "im:image": img,
-    "im:artist": { label: author },
-    id: {
-      attributes: { "im:id": id },
-    },
-  } = podcast;
+  
+  const {id, img, name, author} = podcast
+  
 
   return (
     <Link onClick={()=> setCurrentPodcast(podcast)} to={`podcast/${id}`}>
