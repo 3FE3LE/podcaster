@@ -20,7 +20,7 @@ function PodcastCard({podcast}) {
       <div className="rounded-lg shadow-slate-200 shadow h-32 flex flex-col items-center ">
         <img
           className="rounded-full w-32 h-32 -mt-16"
-          src={img[1].label}
+          src={img[2].label}
           alt={img[2].label}
         />
         <h1 className="text-xl font-bold"> {utils.trimText(name)}</h1>

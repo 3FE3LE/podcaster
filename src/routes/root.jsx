@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Outlet, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
@@ -12,15 +12,18 @@ function Root() {
   const [currentPodcast, setCurrentPodcast] = useState({})
   const [currentEpisode, setCurrentEpisode] = useState({})
 
+  const context = useMemo(() => ({
+    podcasts,
+    setPodcasts,
+    currentPodcast,
+    setCurrentPodcast,
+    currentEpisode,
+    setCurrentEpisode
+  }), [podcasts,
+    currentPodcast,
+    currentEpisode])
   return (
-    <PodcastContext.Provider value={{
-      podcasts,
-      setPodcasts,
-      currentPodcast,
-      setCurrentPodcast,
-      currentEpisode,
-      setCurrentEpisode
-    }}>
+    <PodcastContext.Provider value={context}>
       <Navbar />
       <main className="flex w-full h-screen p-0 m-0">
         {podcastId && <Sidebar />}
