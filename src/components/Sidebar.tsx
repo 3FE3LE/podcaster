@@ -1,9 +1,9 @@
+import React,{ useContext } from "react";
 import { Link, useParams } from "react-router-dom"
-import { useContext } from "react";
 import { PodcastContext } from "../context/podcastContext";
 
 
-function Sidebar() {
+function Sidebar():React.JSX.Element {
 
   const { podcastId, episodeId } = useParams()
 
@@ -18,7 +18,7 @@ function Sidebar() {
         <div className="rounded-lg shadow shadow-slate-200 p-4">
           <img className="rounded-full  w-full mb-4" src={img[2].label} alt={img[2].label} />
           <div className="pt-4 mt-4 border-t-2 border-t-teal-200">
-            <h1text-xl font-bold>{name}</h1text-xl>
+            <h1 className="text-xl font-bold">{name}</h1>
             <h3 className="text-sm text-slate-500 ">by {author}</h3>
           </div>
           <div className="pt-4 mt-4 border-t-cyan-800">

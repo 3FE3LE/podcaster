@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import utils from "../utils";
 import { PodcastContext } from "../context/podcastContext";
-import { useContext } from "react";
+import React,{ useContext } from "react";
+import { TPodcast } from "../types/podcast.types";
 
-function PodcastCard({podcast}) {
+function PodcastCard(podcast: TPodcast) {
 
   const {setCurrentPodcast} = useContext(PodcastContext)
   
