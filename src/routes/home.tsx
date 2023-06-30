@@ -4,6 +4,7 @@ import { PodcastContext } from "../context/podcastContext";
 import Loader from "../components/Loader";
 import utils from "../utils";
 import getPodcasts from "../services/getPodcasts";
+import { TPodcast } from "../types/podcast.types";
 
 function Home() {
   const { podcasts, setPodcasts } = useContext(PodcastContext);
@@ -46,10 +47,10 @@ function Home() {
         </form>
       </div>
       <div className="grid grid-rows-flow grid-cols-5 gap-x-8  gap-y-32 pt-24">
-        {podcasts?.map((pod) => (
+        {podcasts?.map((pod:TPodcast) => (
           <PodcastCard
-            key={pod?.id?.label}
-            podcast={utils.transformPodcastWithNoiseToPodcast(pod)}
+            key={pod.id}
+            podcast={pod}
           />
         ))}
       </div>

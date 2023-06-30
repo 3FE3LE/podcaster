@@ -4,7 +4,11 @@ import { PodcastContext } from "../context/podcastContext";
 import React,{ useContext } from "react";
 import { TPodcast } from "../types/podcast.types";
 
-function PodcastCard(podcast: TPodcast) {
+type TPodcastCardProps = {
+  podcast : TPodcast
+}
+
+function PodcastCard({podcast}: TPodcastCardProps) {
 
   const {setCurrentPodcast} = useContext(PodcastContext)
   
